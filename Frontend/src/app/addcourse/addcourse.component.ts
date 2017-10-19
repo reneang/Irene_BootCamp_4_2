@@ -15,7 +15,7 @@ export class AddcourseComponent implements OnInit {
   ngOnInit() {
   }
   AddCourse() :void {
-    if (this.data.CourseList.length != 0) {
+    if (this.data.CourseList.length != 0 && this.data.coursename!= null) {
       var lastId = this.data.CourseList[this.data.CourseList.length - 1]['id'];
       var obj = {
       'id' : (lastId+1), 
