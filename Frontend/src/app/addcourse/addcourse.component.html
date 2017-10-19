@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="" routerLink="/courselist">Course List</a></li>
+          <li><a href="" routerLink="/">Add Course</a></li>
+      </ul>
+    </div>
+  </nav>
+<div class = "header-font">
+    <h1>Add Course</h1> <br>
+    </div>
+<div class="container-fluid">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <form class="form-horizontal">
+        <div class="form-group">
+          <label for="Classid">Course Code</label>
+          <input type="text" class="form-control" [(ngModel)]="data.coursecode" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="coursename">Course Name</label>
+          <input type="text" class="form-control" [(ngModel)]="data.coursename"[ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+        <label for="coursename">Course Duration</label>
+        <input type="text" class="form-control" [(ngModel)]="data.courseduration" [ngModelOptions]="{standalone: true}">
+      </div>
+        <button type="submit" class="btn btn-default" (click)="AddCourse()">Add Course</button>
+      </form>
+    </div>
+</div>

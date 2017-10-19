@@ -8,19 +8,22 @@ import { AppComponent } from './app.component';
 import { CourseListComponent } from './course-list/course-list.component';
 
 import {APIService} from './api.service';
+import { AddcourseComponent } from './addcourse/addcourse.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent
+    CourseListComponent,
+    AddcourseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path : 'course', component: CourseListComponent},
+      {path : '', component: AddcourseComponent},
+      {path : 'courselist', component: CourseListComponent},
     ])
 
   ],
