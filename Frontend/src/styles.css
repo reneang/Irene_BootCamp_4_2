@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+.header-font{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 26px;
+    text-align: center;
+    color: black;
+    margin: 0px;
+    }

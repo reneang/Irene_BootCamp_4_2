@@ -17,8 +17,8 @@ class CreateAssignmentListsTable extends Migration
             $table->increments('id');
             $table->integer('assignment_id')->unsigned();
             $table->foreign('assignment_id')->references('id')->on('assignment_details');
-            $table->integer('NIM')->unsigned();
-            $table->foreign('NIM')->references('NIM')->on('mahasiswas'); 
+            $table->integer('mahasiswa_id')->unsigned();
+            $table->foreign('mahasiswa_id')->references('id')->on('mahasiswas'); 
             $table->timestamps();
         });
     }

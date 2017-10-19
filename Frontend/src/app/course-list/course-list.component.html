@@ -1,0 +1,69 @@
+<div class = "header-font">
+<h1>Course List</h1> <br>
+</div>
+<div class="container-fluid">
+<div class="col-xs-12 col-sm-12 ">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>
+        <div class="col-xs-6">
+          Course Code
+        </div>
+      </th>
+        <th>
+        <div class="col-xs-6">
+          Course Name 
+        </div>
+        </th>
+        <th>
+            <div class="col-xs-6">
+              Course Duration 
+            </div>
+            </th>
+    </tr>
+    <tr *ngFor="let r of GetCourse(); index as i;">
+      <td>
+        <div class="col-xs-4 ">
+          {{r.coursecode}}
+        </div>
+      </td>
+      <td>
+        <div class="col-xs-4">
+          {{r.coursename}}
+          <!-- <button type="button" class="btn btn-default custom-button" (click)="Book(r.room_name)">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Book -->
+          <!-- </button> -->
+        </div>
+      </td>
+      <td>
+      <div class="col-xs-4 ">
+          {{r.courseduration}}
+      </div>
+    </tr>
+  </table>
+</div>
+</div>
+
+<br>
+<div class = "header-font">
+    <h1>Add Course</h1> <br>
+    </div>
+<div class="container-fluid">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <form class="form-horizontal">
+        <div class="form-group">
+          <label for="Classid">Course Code</label>
+          <input type="text" class="form-control" [(ngModel)]="data.coursecode" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="coursename">Course Name</label>
+          <input type="text" class="form-control" [(ngModel)]="data.coursename"[ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+        <label for="coursename">Course Duration</label>
+        <input type="text" class="form-control" [(ngModel)]="data.courseduration" [ngModelOptions]="{standalone: true}">
+      </div>
+        <button type="submit" class="btn btn-default" (click)="AddCourse()">Add Course</button>
+      </form>
+    </div>
+</div>

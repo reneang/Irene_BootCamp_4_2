@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'student'], function() {
     Route::post('/signup', 'StudentDataController@StudentInput');
-    Route::post('/updatedata', 'StudentDataController@StudentUpdate');
+    Route::post('/updatedata&{id}', 'StudentDataController@update');
 });
