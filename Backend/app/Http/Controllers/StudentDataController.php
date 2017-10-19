@@ -15,13 +15,13 @@ class StudentDataController extends Controller
                 'nama' => 'required'
             ]);
         $mahasiswa = new mahasiswa;
-        $mahasiswa->name = $req->input('name');
+        $mahasiswa->nama = $req->input('nama');
         $mahasiswa->alamat = $req->input('alamat');
         $mahasiswa->phoneno = $req->input('phoneno');
         $mahasiswa->save();
 
         DB::commit();
-        return response()->json(['message'=>'Success'], 200);
+        return response()->json($mahasiswa, 200);
 
         }
         catch(\Exception $e){
@@ -31,17 +31,22 @@ class StudentDataController extends Controller
     }
 
     function StudentUpdate(Request $req){
-        $mahasiswa = new mahasiswa;
-        $mahasiswaId= $req->input('NIM');
-        $newaddress = Input::get('address');
-        $newphoneno = Input::get('phoneno');
-        DB::table('mahasiswas')
-        ->where('id', $mahasiswaId);
-        ->update(['address'=> $req->input('address'), 'phoneno'=> $req->input('phoneno')]);
+        DB::beginTransaction();
+        try {
+        $NIM= $req->input('NIM');
+        $newaddress = $req->input('alamat');
+        $newphoneno = $req->input('phoneno');
 
-   $sql = "UPDATE NIM SET address= ? phoneno= ? WHERE NIM= ?";
-   DB::update($sql, array($newaddress, $newphoneno, $status->id));
-
-   return Redirect::to('home');
+        DB::update('update mahasiswas set alamat = ?, phoneno =?  where NIM = ?' , [$newaddress, $newphoneno, $NIM]);
+        return response()->json(['message' => 'Success'], 200);
+        
+        // DB::table('mahasiswas')
+        // ->where('id', $mahasiswaId);
+        // ->update(['alamat'=> $newaddress;'phoneno'=>$newphoneno;]);
+        }
+        catch(\Exception $e){
+            DB::rollback();
+            return response()->json(['message'=>'Failed to Sign Up, exception:' + $e], 500);
+        }
     }
 }
